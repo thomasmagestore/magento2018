@@ -11,7 +11,7 @@ pipeline {
             
           }
           steps {
-            readFile '/home/magento/Documents/Jenkins/ContinuousIntergration/server.sh'
+            sh '/home/magento/Documents/Jenkins/ContinuousIntergration/server.sh'
           }
         }
         stage('Client') {
@@ -22,7 +22,7 @@ pipeline {
             
           }
           steps {
-            readFile '/home/magento/Documents/Jenkins/ContinuousIntergration/client.sh'
+            sh '/home/magento/Documents/Jenkins/ContinuousIntergration/client.sh'
           }
         }
       }
