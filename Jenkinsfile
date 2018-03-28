@@ -11,11 +11,7 @@ pipeline {
             
           }
           steps {
-            sh '''sudo chown -R jenkins /home/magento/Documents/
-sudo chmod -R 777 ./
-cd /home/magento/Documents/Docker/omc-2.0/app/code/Magestore
-git clone https://magestore-system:bcdf5baeee5c56a052cecb90ff7a0295f188d750@github.com/Magestore/webpos-omc-2.0 -b develop Webpos
-echo \'clone successfully.\''''
+            readFile '/home/magento/Documents/Jenkins/ContinuousIntergration/server.sh'
           }
         }
         stage('Client') {
@@ -26,9 +22,7 @@ echo \'clone successfully.\''''
             
           }
           steps {
-            sh '''cd /home/magento/Documents/Docker/omc-2.0/app/web
-git clone https://magestore-system:bcdf5baeee5c56a052cecb90ff7a0295f188d750@github.com/Magestore/webpos-client-omc-2.0 -b develop webpos-client-omc-2.0
-echo \'clone client successfully.\''''
+            readFile '/home/magento/Documents/Jenkins/ContinuousIntergration/client.sh'
           }
         }
       }
